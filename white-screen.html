@@ -1,41 +1,36 @@
 <html>
 <head>
-    <script language="jscript">
-        function goFullscreen() {
-            // Must be called as a result of user interaction to work
-            mf = document.getElementById("main_frame");
-            mf.webkitRequestFullscreen();
-            mf.style.display="";
-        }
-        function fullscreenChanged() {
-            if (document.webkitFullscreenElement == null) {
-                mf = document.getElementById("main_frame");
-                mf.style.display="none";
-            }
-        }
-        document.onwebkitfullscreenchange = fullscreenChanged;
-        document.documentElement.onclick = goFullscreen;
-        document.onkeydown = goFullscreen;
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
 </head>
-<body style="margin:0">
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+<body>
+
+<h2>Fullscreen with JavaScript</h2>
+<p>Click on the button to open the video in fullscreen mode.</p>
+<button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
+<p><strong>Tip:</strong> Press the "Esc" key to exit full screen.</p>
+
+<video width="100%" controls id="myvideo">
+  <source src="rain.mp4" type="video/mp4">
+  <source src="rain.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+
+
+<script type="text/javascript">    
+    window.onload = maxWindow;    
+    function maxWindow() {        
+        window.moveTo(0, 0);        
+        if (document.all) {            
+            top.window.resizeTo(screen.availWidth, screen.availHeight);       
+        } else if (document.layers || document.getElementById) {            
+            if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) { 
+                top.window.outerHeight = screen.availHeight;            
+                top.window.outerWidth = screen.availWidth;          
+            }     
+        }   
+    }
+    </script> 
 </body>
+    
 </html>
